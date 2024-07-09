@@ -1,3 +1,32 @@
+"""
+PDF to PPTX Converter
+
+Author: Jeongkyu Shin <inureyes@gmail.com>
+
+A Python script to convert PDF files to PowerPoint presentations, with each page of the PDF being an image in a slide.
+The script supports conversion to both JPG and PNG image formats.
+
+Features:
+- Converts each page of a PDF file to an image and places it in a PowerPoint slide.
+- Supports JPG and PNG image formats.
+- Automatically handles file naming and temporary folders.
+- Displays progress bars for conversion and slide creation.
+- Automatically cleans up temporary files after creating the presentation.
+
+License:
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+Acknowledgements:
+This project uses the following libraries:
+- pdf2image
+- python-pptx
+- tqdm
+- Poetry
+
+Issues and Contributions:
+Feel free to submit issues and contribute to the project on GitHub.
+"""
+
 import os
 import sys
 import shutil
@@ -31,12 +60,11 @@ def main():
     base_name = os.path.splitext(os.path.basename(input_pdf_path))[0]
     image_folder_path = f"output_images_{base_name}"
 
-    # 이미지 저장 폴더가 없으면 생성
     if not os.path.exists(image_folder_path):
         print("Creating temporary folder for images...")
         os.makedirs(image_folder_path)
 
-    # PDF를 이미지로 변환
+    # Convert PDF pages to images. DPI can be adjusted for quality and final pptx file size.
     images = convert_from_path(input_pdf_path, dpi=300)
     
     print(f"Converting PDF pages to {image_format} images...")
@@ -50,25 +78,22 @@ def main():
             image_format_upper = image_format.upper()
         image.save(image_path, image_format_upper)
 
-    # 새로운 프레젠테이션 생성 및 슬라이드 크기 설정 (16:9 비율)
+    # Create a PowerPoint presentation and add slides with images. Be careful with the slide dimensions.
     prs = Presentation()
-    prs.slide_width = Inches(13.33)  # 16:9 비율의 너비
-    prs.slide_height = Inches(7.5)  # 16:9 비율의 높이
+    prs.slide_width = Inches(13.33)
+    prs.slide_height = Inches(7.5)
 
-    # 이미지 파일을 불러와 슬라이드에 추가
     image_files = sorted([f for f in os.listdir(image_folder_path) if f.endswith(f'.{image_format}')])
     print("Adding images to the PowerPoint presentation...")
     for image_filename in tqdm(image_files, desc="Slides", unit="slide", ncols=80, bar_format='{l_bar}{bar}| {n_fmt}/{total_fmt}')):
-        slide = prs.slides.add_slide(prs.slide_layouts[6])  # 빈 슬라이드 레이아웃 사용
+        slide = prs.slides.add_slide(prs.slide_layouts[6])
         img_path = os.path.join(image_folder_path, image_filename)
         slide.shapes.add_picture(img_path, Inches(0), Inches(0), width=prs.slide_width, height=prs.slide_height)
 
-    # 새로운 파워포인트 파일로 저장
     output_pptx_path = get_output_pptx_path(base_name)
     prs.save(output_pptx_path)
     print(f"New presentation saved as {output_pptx_path}")
 
-    # 임시 폴더 삭제
     if os.path.exists(image_folder_path):
         print("Deleting temporary folder for images...")
         shutil.rmtree(image_folder_path)
