@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "pdf2ppt"
+version = "1.0.0"
+description = "A script to convert PDF files to PowerPoint presentationss."
+authors = ["Jeongkyu Shin <inureyes@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pdf2image = "^1.17.0"
+python-pptx = "^0.6.23"
+tqdm = "^4.66.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+pdf_to_pptx = "pdf_to_pptx:main"
