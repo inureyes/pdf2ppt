@@ -9,6 +9,7 @@ A Python script to convert PDF files to PowerPoint presentations, with each page
 - Automatically handles file naming and temporary folders.
 - Displays progress bars for conversion and slide creation.
 - Automatically cleans up temporary files after creating the presentation.
+- On macOS, if Microsoft PowerPoint is installed, you can directly input a PPTX file to flatten it.
 
 ## Requirements
 
@@ -38,15 +39,15 @@ A Python script to convert PDF files to PowerPoint presentations, with each page
 
 ## Usage
 
-To convert a PDF file to a PowerPoint presentation, use the following command:
+To convert a PDF or PPTX file to a flattened PowerPoint presentation, use the following command:
 
 ```bash
-poetry run pdf_to_pptx <path/to/your/input_document.pdf> --format <image_format>
+poetry run pdf_to_pptx <path/to/your/input_document> --format <image_format>
 ```
 
 ## Arguments
 
- * `<path/to/your/input_document.pdf>`: Path to the input PDF file.
+ * `<path/to/your/input_document>`: Path to the input PDF, PPT or PPTX (macOS only) file.
  * `--format <image_format>`: Image format for conversion (jpg or png). Default is jpg.
 
 ## Examples
@@ -61,6 +62,18 @@ Convert a PDF to a PowerPoint presentation with PNG images:
 
     ```bash
     poetry run pdf_to_pptx /path/to/your/input_document.pdf --format png
+    ```
+
+Convert a PPTX to a PowerPoint presentation (flattened) with JPG images on macOS with Microsoft PowerPoint installed:
+
+    ```bash
+    poetry run pdf_to_pptx /path/to/your/input_document.pptx --format jpg
+    ```
+
+Convert a PPTX to a PowerPoint presentation (flattened) with PNG images on macOS with Microsoft PowerPoint installed:
+
+    ```bash
+    poetry run pdf_to_pptx /path/to/your/input_document.pptx --format png
     ```
 
 > [!NOTE]
