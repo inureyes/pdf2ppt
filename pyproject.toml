@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "pdf2ppt"
-version = "1.0.0"
-description = "A script to convert PDF files to PowerPoint presentationss."
+version = "1.1.0"
+description = "A script to convert PDF/PPT/PPTX files to flattened PowerPoint presentationss."
 authors = ["Jeongkyu Shin <inureyes@gmail.com>"]
 license = "MIT"
 readme = "README.md"
