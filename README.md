@@ -63,6 +63,9 @@ Convert a PDF to a PowerPoint presentation with PNG images:
     poetry run pdf_to_pptx /path/to/your/input_document.pdf --format png
     ```
 
+> [!NOTE]
+> You can use this program to flatten a PowerPoint file by first converting the PowerPoint file to PDF, and then using this program to convert the PDF back to a PowerPoint file. This process makes the PowerPoint content non-editable.
+ 
 ## Development
 
 If you want to contribute or modify the script, you can run it in a development environment.
