@@ -66,9 +66,9 @@ def convert_ppt_to_pdf_mac(input_ppt_path, output_pdf_path):
 
 def get_output_pptx_path(base_name):
     i = 1
-    output_pptx_path = f"{base_name} (flattened).pptx"
+    output_pptx_path = f"{base_name} (flatten).pptx"
     while os.path.exists(output_pptx_path):
-        output_pptx_path = f"{base_name} (flattened)_{i}.pptx"
+        output_pptx_path = f"{base_name} (flatten)_{i}.pptx"
         i += 1
     return output_pptx_path
 
