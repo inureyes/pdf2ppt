@@ -17,4 +17,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-pdf_to_pptx = "pdf_to_pptx:main"
+pdf2ppt = "pdf2ppt:main"

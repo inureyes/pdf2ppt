@@ -21,8 +21,8 @@ A Python script to convert PDF files to PowerPoint presentations, with each page
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/pdf_to_pptx.git
-    cd pdf_to_pptx
+    git clone https://github.com/yourusername/pdf2ppt.git
+    cd pdf2ppt
     ```
 
 2. Install Poetry if you haven't already:
@@ -42,7 +42,7 @@ A Python script to convert PDF files to PowerPoint presentations, with each page
 To convert a PDF or PPTX file to a flattened PowerPoint presentation, use the following command:
 
 ```bash
-poetry run pdf_to_pptx <path/to/your/input_document> --format <image_format>
+poetry run pdf2ppt <path/to/your/input_document> --format <image_format>
 ```
 
 ## Arguments
@@ -55,25 +55,25 @@ poetry run pdf_to_pptx <path/to/your/input_document> --format <image_format>
 Convert a PDF to a PowerPoint presentation with JPG images:
 
     ```bash
-    poetry run pdf_to_pptx /path/to/your/input_document.pdf --format jpg
+    poetry run pdf2ppt /path/to/your/input_document.pdf --format jpg
     ```
 
 Convert a PDF to a PowerPoint presentation with PNG images:
 
     ```bash
-    poetry run pdf_to_pptx /path/to/your/input_document.pdf --format png
+    poetry run pdf2ppt /path/to/your/input_document.pdf --format png
     ```
 
 Convert a PPTX to a PowerPoint presentation (flattened) with JPG images on macOS with Microsoft PowerPoint installed:
 
     ```bash
-    poetry run pdf_to_pptx /path/to/your/input_document.pptx --format jpg
+    poetry run pdf2ppt /path/to/your/input_document.pptx --format jpg
     ```
 
 Convert a PPTX to a PowerPoint presentation (flattened) with PNG images on macOS with Microsoft PowerPoint installed:
 
     ```bash
-    poetry run pdf_to_pptx /path/to/your/input_document.pptx --format png
+    poetry run pdf2ppt /path/to/your/input_document.pptx --format png
     ```
 
 > [!NOTE]
@@ -92,7 +92,7 @@ If you want to contribute or modify the script, you can run it in a development 
 2.	Run the script:
 
     ```bash
-    python pdf_to_pptx.py <path/to/your/input_document.pdf> --format <image_format>
+    python pdf2ppt.py <path/to/your/input_document.pdf> --format <image_format>
     ```
 
 ## License
@@ -110,4 +110,4 @@ This project uses the following libraries:
 
 ## Issues and Contributions
 
-Feel free to submit issues and contribute to the project on [GitHub](https://github.com/inureyes/pdf_to_pptx).
+Feel free to submit issues and contribute to the project on [GitHub](https://github.com/inureyes/pdf2ppt).
